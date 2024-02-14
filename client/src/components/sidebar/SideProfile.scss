@@ -1,0 +1,19 @@
+.sideProfile {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8fafc;
+    .leftprofile {
+      padding: 1px;
+      .Profilename {
+        color: #0f172a;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .username {
+        color: #64748b;
+        font-size: 12px;
+      }
+    }
+  }

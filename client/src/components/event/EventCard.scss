@@ -1,0 +1,169 @@
+.event-container{
+    display: flex;
+    flex-direction: column;
+    .event-sub-titles{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 12px;
+        color: #64748B;
+        .events-title-top{
+            display: flex;
+            gap: 25px;
+            font-size: 16px;
+            font-size: 700;
+            padding: 8px 16px;
+            .popular-events{
+                color:#2563EB;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &::after{
+                    content: "";
+                    width: 100%;
+                    height: 4px;
+                    background-color: #2563EB;
+                    display: block; 
+                    margin-top: 5px;
+                    border-radius: 50px;
+                }
+            }
+          
+        }
+       
+    }
+    .events-images{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 30px;
+        padding: 1rem;
+        padding: 16px 10px 10px 30px;
+
+        .event-card-contents{
+            display: flex;
+            flex-direction: column;
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 15px;
+            gap: 15px;
+            .events-page-icon{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px 0;
+                .events-page-icon-head{
+                  p{
+                    color: #64748B;
+                  }  
+                }
+                .events-bottom{
+                    display: flex;
+                    align-items: center;
+                    .mbrs-icon {
+                        margin-left: -50px;
+                    }                    }
+                    .events-para{
+                        background-color: #F8FAFC;
+                        border: 1px solid white;
+                        border-radius: 50%;
+                        padding: 8px;
+                        color: #94A3B8;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                }
+                Button{
+                    background-color:#FFFFFF;
+                    padding: 6px 10px;
+                    color:#2563EB;
+                    font-weight: 700;
+                    font-size: 14px;
+                    border-radius: 12px;
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                    height: 42px;
+                }
+        }
+    }
+    .center-events-card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 0;
+        gap: 10px;
+        color: #94A3B8;
+        .events-icons{
+            color: #94A3B8;
+            display: flex;
+                    flex-direction: row;
+                    gap: 6px;
+                   
+                    align-items: center;
+        }
+    }
+   
+}
+
+@media screen and (max-width: 500px){
+    .event-container{
+        
+        .event-sub-titles{
+            flex-direction: column;
+            padding: 12px;
+            .events-title-top{
+                flex-wrap: wrap;
+                gap: 20px;
+                font-size: 14px;
+                padding: 8px;
+                             
+            }
+           
+        }
+        .events-images{
+            flex-direction: column;
+            width: 100%;
+            gap: 30px;
+            padding: 1rem;
+    
+            .event-card-contents{
+                width: 100%;
+                gap: 15px;
+              
+            }
+        }
+              
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 820px){
+    .event-container{
+        
+        .event-sub-titles{
+            flex-wrap: wrap;
+            padding: 12px;
+            .events-title-top{
+                flex-wrap: wrap;
+                gap: 20px;
+                font-size: 14px;
+                padding: 8px;
+                             
+            }
+           
+        }
+        .events-images{
+            width: 100%;
+            gap: 10px;
+            padding: 1rem;
+    
+            .event-card-contents{
+                width: 48%;
+                gap: 15px;
+              margin: 0 auto;
+            }
+        }
+              
+    }
+}

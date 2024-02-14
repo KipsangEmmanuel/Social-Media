@@ -1,0 +1,27 @@
+// SideBarRes.scss
+.res-sidenav {
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50vw;
+  overflow-y: auto;
+  background-color: white;
+  padding: 5px;
+  z-index: 1100;
+  // margin: 10px 0 0 10px;
+
+  &.visible {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar-content {
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+
+
+}

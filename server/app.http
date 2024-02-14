@@ -1,0 +1,5 @@
+###
+GET http://localhost:9500/
+
+###
+POST http://localhost:9500/

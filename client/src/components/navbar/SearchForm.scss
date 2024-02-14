@@ -1,0 +1,24 @@
+.search-form{
+    width: 25vw;
+    .input{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        input {
+            width: 100%; 
+            padding: 10px 10px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            background-image: url('../assets/search-icon.png');
+            background-repeat: no-repeat;
+            background-position: 8px center;
+            padding-left: 35px; 
+            &:focus {
+              border: 1px solid #E2E8F0;
+              outline: none;
+            }
+          }
+    }
+}
+
+

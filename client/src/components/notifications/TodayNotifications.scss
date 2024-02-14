@@ -1,0 +1,29 @@
+.notifications{
+    width: 100%;
+    padding: 10px;
+    .notification-menu{
+        width: 100%;
+        // padding: 5px;
+        .notification{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #F8FAFC;
+            padding: 15px;
+            // align-items: center;
+            margin: 10px;
+            .not-card-top{
+            width: 100%;
+            display: flex;
+            gap: 1rem;
+            p{
+            color: #94A3B8;
+           }
+           
+            }
+            p{
+                color: #94A3B8;
+            }
+        }
+    }
+}

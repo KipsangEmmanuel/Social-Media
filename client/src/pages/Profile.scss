@@ -1,0 +1,62 @@
+.profile-right-content{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #F8FAFC;
+    .profile-content{
+        margin: 10px;
+        width: 60vw; 
+        margin-left: 16rem;
+
+
+    }
+    .rightbar{
+        flex: 1;
+    }
+
+
+}
+
+@media screen and (max-width:500px){
+    .profile-right-content{
+        background-color: #F8FAFC;
+        width: 100vw;
+        .profile-content{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0;                
+        }
+    
+    
+    }
+}
+
+// /* Styles for screens with a width of at least 600 pixels and at most 1200 pixels */
+// @media screen and (min-width: 600px) and (max-width: 1200px) {
+//     /* Your styles for screens within this width range go here */
+//   }
+  
+
+  @media screen and (min-width: 501px) and (max-width: 820px){
+    .profile-right-content{
+        width: 100vw;
+        padding: 20px;
+        .profile-content{
+            width: 100%;
+            display: flex;
+            margin-left: 0;
+            flex-direction: column;
+            margin: 10px auto;                
+        }
+    
+    }
+}
+
+@media screen and (min-width: 821px) and (max-width: 1024px){
+    .profile-right-content{
+        .profile-content{
+            margin-left: 10.5rem;
+        }
+    
+    }
+}

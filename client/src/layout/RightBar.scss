@@ -1,0 +1,33 @@
+.RightContent{
+    display: flex;
+    // flex: 6;
+    background-color: white;
+    padding: 1rem;
+    width: 20vw;
+    gap: 10px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    .rightSide{
+      width: 100%;
+      background-color: #F8FAFC;
+    }
+    .leftSide{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media screen and (max-width: 500px){
+    .RightContent {
+      display: none;
+      
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    .RightContent {
+      display: none;
+      
+    }
+  }

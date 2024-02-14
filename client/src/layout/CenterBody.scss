@@ -1,0 +1,21 @@
+.center-body{
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+@media screen and (max-width:500px){
+    .center-body{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:768px){
+    .center-body{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+}

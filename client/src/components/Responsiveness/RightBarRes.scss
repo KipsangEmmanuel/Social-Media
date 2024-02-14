@@ -1,0 +1,41 @@
+.res-right-content{
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50vw;
+    overflow-y: auto;
+    background-color: white;
+    padding: 5px;
+    z-index: 1100;
+    &.visible {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .res-rightSide{
+      width: 100%;
+      background-color: #F8FAFC;
+    }
+    .res-leftSide{
+      width: 100%;
+    //   height: 100%;
+    }
+  }
+
+// SideBarRes.scss
+.res-sidenav {
+  // display: none;
+ 
+  // margin: 10px 0 0 10px;
+
+ 
+
+  .sidebar-content {
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+
+
+}

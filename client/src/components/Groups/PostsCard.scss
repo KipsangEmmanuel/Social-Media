@@ -1,0 +1,39 @@
+.post-card-head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 0;
+    .post-card-left-items{
+        display: flex;
+        gap: 10px;
+        .main-post-card-user{
+            display: flex;
+            align-items: center;
+            .post-card-user{
+                background-color: #ED4F9D;
+                padding: 16px;
+                border-radius: 50%;
+                color: white;
+               }
+        }
+       
+       .post-card-user-desc{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        h4{
+            color: #0F172A;
+        }
+        p{
+            color: #64748B;
+        }
+       }
+       
+
+    }
+    .post-icon-card{
+        display: flex;
+        align-items: center;
+    }
+}
