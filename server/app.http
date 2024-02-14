@@ -2,4 +2,14 @@
 GET http://localhost:9500/
 
 ###
-POST http://localhost:9500/
+
+POST http://localhost:9500/api/users/register
+Content-Type: application/json
+
+{
+    "username": "Emmanuel Kipsang",
+    "email": "emmauel@gmail.com",
+    "password": "@Emmanuel123"
+
+}
+
