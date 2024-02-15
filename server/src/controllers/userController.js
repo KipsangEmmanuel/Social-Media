@@ -2,7 +2,7 @@ import express from "express"
 import bcrypt from 'bcrypt'
 import { v4 } from 'uuid';
 import { sql } from "../utils/dbConnect.js"
-import { addUserService, findByCredentialsService, getAllUsersService } from "../services/userService.js";
+import { addUserService, deleteUserService, findByCredentialsService, getAllUsersService } from "../services/userService.js";
 import { notAuthorized, sendCreated, sendServerError } from "../helper/helperFunction.js";
 import { userLoginValidator, validateRegisterUser } from "../validators/userValidator.js";
 
@@ -96,4 +96,25 @@ export const getAllUsers = async(req, res) => {
         res.status(500).json({error: error.message});
     }
 }
+
+
+export const deleteUserById = async (req, res) => {
+    try {
+        const user_id = req.params.user_id;
+        console.log('user id',user_id);
+        await deleteUserService(user_id)
+
+        return res.status(200).json({
+            message: "User deleted successfully"
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+        
+    }
+}
+
+
 

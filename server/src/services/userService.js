@@ -74,3 +74,23 @@ export const getAllUsersService = async () => {
         throw error;
     }
 }
+
+export const deleteUserService = async(user_id) => {
+    try {
+        const query = `DELETE FROM tbl_user WHERE user_id = @user_id`;
+        // console.log('this is the query', query);
+        const result = await poolRequest()
+                .input('user_id', sql.VarChar, user_id)
+                .query(query)
+
+        if(result.rowsAffected[0] === 0) {
+            throw new Error('User not found')
+        }
+
+        return result;
+        
+    } catch (error) {
+        throw error
+        
+    }
+}

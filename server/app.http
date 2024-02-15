@@ -1,3 +1,6 @@
+
+// USERS ENDPOINTS
+
 ###
 GET http://localhost:9500/
 
@@ -9,9 +12,9 @@ POST http://localhost:9500/api/users/register
 Content-Type: application/json
 
 {
-    "username": "Emmanuel Kipsang",
-    "email": "emmanuel@gmail.com",
-    "password": "@Emmanuel123"
+    "username": "Abel  Kipsang",
+    "email": "abel@gmail.com",
+    "password": "@Abel123"
 
 }
 
@@ -24,3 +27,5 @@ Content-Type: application/json
     "password": "@Emmanuel123"
 }
 
+###
+DELETE http://localhost:9500/api/users/7e1eb6fe-80d0-4017-b594-5eb4bf644376

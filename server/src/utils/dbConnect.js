@@ -33,6 +33,8 @@ try {
     logger.error('Error creating connection pool', error);
 }
 
-export { poolRequest, sql };
+const closePool = async () => sql.close();
+
+export { poolRequest, closePool, sql };
 
 
