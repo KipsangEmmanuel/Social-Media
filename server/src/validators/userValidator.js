@@ -8,7 +8,18 @@ export const validateRegisterUser = (user)=>{
         new RegExp(
             "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
         )
-    )
-});
-return validateUserSchema.validate(user)
+        )
+    });
+    return validateUserSchema.validate(user)
 }
+
+export const userLoginValidator = (user) => {
+    const userLoginValidatorSchema = Joi.object({
+        username: Joi.string().required(),
+        password: Joi.string().min(4).required()
+    })
+
+    return userLoginValidatorSchema.validate(user);
+}
+
+

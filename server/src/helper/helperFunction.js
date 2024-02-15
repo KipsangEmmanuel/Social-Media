@@ -11,3 +11,7 @@ export const sendServerError = (res, message) => {
     });
 }
 
+export const notAuthorized = (res, message) => {
+    return res.status(401).json({ message: message });
+}
+

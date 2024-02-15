@@ -2,9 +2,9 @@ import express from "express"
 import bcrypt from 'bcrypt'
 import { v4 } from 'uuid';
 import { sql } from "../utils/dbConnect.js"
-import { addUserService } from "../services/userService.js";
-import { sendCreated, sendServerError } from "../helper/helperFunction.js";
-import { validateRegisterUser } from "../validators/userValidator.js";
+import { addUserService, findByCredentialsService } from "../services/userService.js";
+import { notAuthorized, sendCreated, sendServerError } from "../helper/helperFunction.js";
+import { userLoginValidator, validateRegisterUser } from "../validators/userValidator.js";
 
 
 export const getAll =async (req, res) => {
@@ -55,6 +55,28 @@ export const registerUser = async (req, res) => {
         }
     }
 
+}
+
+
+export const loginUser = async (req, res) => {
+    const {username, password} = req.body
+    const { error } = userLoginValidator({ username, password });
+    if(error) {
+        return res.status(400).send(error.details[0].message);
+
+    }else{
+        try {
+            const userResponse = await findByCredentialsService({ username, password });
+            if(userResponse.error) {
+                notAuthorized(res, userResponse.error)
+            }else{
+                res.status(200).send(userResponse)
+            }
+            
+        } catch (error) {
+            sendServerError(res, error.message)
+        }
+    }
 }
 
 

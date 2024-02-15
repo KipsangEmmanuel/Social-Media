@@ -8,8 +8,17 @@ Content-Type: application/json
 
 {
     "username": "Emmanuel Kipsang",
-    "email": "emmauel@gmail.com",
+    "email": "emmanuel@gmail.com",
     "password": "@Emmanuel123"
 
+}
+
+###
+POST http://localhost:9500/api/users/auth/login
+Content-Type: application/json
+
+{
+    "username": "Emmanuel Kipsang",
+    "password": "@Emmanuel123"
 }
 
