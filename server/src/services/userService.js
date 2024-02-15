@@ -94,3 +94,30 @@ export const deleteUserService = async(user_id) => {
         
     }
 }
+
+
+export const updateUserService = async (user_id, updatedValues) => {
+    try {
+        const { username, email, password } = updatedValues;
+        
+        const query = `
+            UPDATE tbl_user 
+            SET username = @username, email = @email, password = @password 
+            WHERE user_id = @user_id`;
+
+        const result = await poolRequest()
+            .input('user_id', sql.VarChar, user_id)
+            .input('username', sql.VarChar, username)
+            .input('email', sql.VarChar, email)
+            .input('password', sql.VarChar, password)
+            .query(query);
+
+        if (result.rowsAffected[0] === 0) {
+            throw new Error('User not found');
+        }
+
+        return result;
+    } catch (error) {
+        throw error;
+    }
+};
