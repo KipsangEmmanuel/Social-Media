@@ -16,11 +16,13 @@ POST http://localhost:9500/api/users/register
 Content-Type: application/json
 
 {
-    "username": "Abel  Kipsang",
-    "email": "abel@gmail.com",
-    "password": "@Abel123"
-
+    "Username": "Abel Kipsang",
+    "Email": "abel@gmail.com",
+    "Password": "@Abel123",
+    "TagName": "mkuru",
+    "Location": "Nyeri"
 }
+
 
 ###
 POST http://localhost:9500/api/users/auth/login
@@ -46,5 +48,7 @@ PUT http://localhost:9500/api/users/e104137f-6098-45f0-a1ed-3562ff1d14f6
 }
 
 
+
+//POST ENDPOINTS
 
 

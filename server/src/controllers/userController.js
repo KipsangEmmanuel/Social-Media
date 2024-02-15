@@ -13,49 +13,52 @@ export const getAll =async (req, res) => {
 }
 
 export const registerUser = async (req, res) => {
+    const { Username, Password, Email, TagName, Location } = req.body;
+    console.log("body", req.body);
 
-    const {username, password, email} = req.body;
-    console.log("body",req.body)
-
-
-    const {error} = validateRegisterUser({ username, email, password });//validate the body
-    if(error) {
+    const { error } = validateRegisterUser({
+        Username,
+        Email,
+        Password,
+        TagName,
+        Location,
+    }); // validate the body
+    if (error) {
         return res.status(400).send(error.details[0].message);
-    }else{
+    } else {
         try {
-
             const user_id = v4();
 
-            //hash the password
+            // hash the password
             const salt = await bcrypt.genSalt(8);
-            const hashedPassword = await bcrypt.hash(password, salt)
+            const hashedPassword = await bcrypt.hash(Password, salt);
 
-            //create new user
+            // create new user
             const newUser = {
                 user_id,
-                username,
-                password: hashedPassword,
-                email
+                Username,
+                Email,
+                Password:hashedPassword,
+                TagName,
+                Location
+            };
+
+            // add user to the database
+            const response = await addUserService(newUser);
+            console.log(response);
+
+            if (response && response.rowsAffected && response.rowsAffected.length > 0 && response.rowsAffected[0] > 0) {
+                sendCreated(res, 'User created successfully');
+            } else {
+                sendServerError(res, 'Failed to create user');
             }
-
-            // console.log(newUser)
-
-            //add user to the database
-            const response = await addUserService(newUser)
-            console.log(response)
-
-            if(res.message){
-                sendServerError(res, response.message)
-            }else{
-                sendCreated(res, 'User created successfully')
-            }
-            
         } catch (error) {
             sendServerError(res, error.message);
         }
     }
+};
 
-}
+
 
 
 export const loginUser = async (req, res) => {
@@ -138,7 +141,6 @@ export const updateUserById = async(req, res) => {
 }
 
 
-
 export const getUserById = async (req, res) => {
     try {
         const user_id = req.params.user_id;
@@ -149,4 +151,6 @@ export const getUserById = async (req, res) => {
         return res.status(404).json({ error: error.message });
     }
 };
+
+
 

@@ -7,23 +7,25 @@ dotenv.config()
 
 export const addUserService = async (newUser) => {
     try {
-        const  result = await poolRequest()
-        .input('username', sql.VarChar, newUser.username)
-        .input('user_id', sql.VarChar, newUser.user_id)
-        .input('password', sql.VarChar, newUser.password)
-        .input('email', sql.VarChar, newUser.email)
-        .query('INSERT INTO tbl_user (user_id, username, password, email) VALUES ( @user_id, @username, @password, @email)')
-
+        const result = await poolRequest()
+            .input('user_id', sql.VarChar, newUser.user_id)
+            .input('Username', sql.VarChar, newUser.Username)
+            .input('Password', sql.VarChar, newUser.Password)
+            .input('Email', sql.VarChar, newUser.Email)
+            .input('TagName', sql.VarChar, newUser.TagName)
+            .input('Location', sql.VarChar, newUser.Location)
+            .query('INSERT INTO tbl_user (user_id, Username, Password, Email, TagName, location) VALUES (@user_id, @Username, @Password, @Email, @TagName, @Location)');
+        
         console.log(result.recordset);
 
         return result;
         
     } catch (error) {
-        console.log(error)
+        console.log(error);
         throw error;
     }
+};
 
-}
 
 export const findByCredentialsService = async (user) => {
     try {
