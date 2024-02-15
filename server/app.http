@@ -5,7 +5,11 @@
 GET http://localhost:9500/
 
 ###
+
 GET http://localhost:9500/api/users/all
+
+###
+GET http://localhost:9500/api/users/e104137f-6098-45f0-a1ed-3562ff1d14f6
 
 ###
 POST http://localhost:9500/api/users/register
@@ -30,6 +34,7 @@ Content-Type: application/json
 ###
 DELETE http://localhost:9500/api/users/7e1eb6fe-80d0-4017-b594-5eb4bf644376
 
+
 ###
 PUT http://localhost:9500/api/users/e104137f-6098-45f0-a1ed-3562ff1d14f6
 
@@ -39,3 +44,7 @@ PUT http://localhost:9500/api/users/e104137f-6098-45f0-a1ed-3562ff1d14f6
     "password": "@Mutua123"
 
 }
+
+
+
+

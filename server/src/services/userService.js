@@ -66,7 +66,7 @@ export const getAllUsersService = async () => {
     try {
 
         const query = 'SELECT * FROM tbl_user';
-        const result = await sql.query(query);
+        const result = await poolRequest().query(query);
 
         return result.recordset;
         
@@ -117,6 +117,24 @@ export const updateUserService = async (user_id, updatedValues) => {
         }
 
         return result;
+    } catch (error) {
+        throw error;
+    }
+};
+
+
+export const getUserByIdService = async (user_id) => {
+    try {
+        const query = `SELECT * FROM tbl_user WHERE user_id = @user_id`;
+        const result = await poolRequest()
+            .input('user_id', sql.VarChar, user_id)
+            .query(query);
+
+        if (result.recordset.length === 0) {
+            throw new Error('User not found');
+        }
+
+        return result.recordset[0];
     } catch (error) {
         throw error;
     }
