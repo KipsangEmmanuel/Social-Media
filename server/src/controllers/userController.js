@@ -84,23 +84,15 @@ export const loginUser = async (req, res) => {
 };
 
 
-
-export const getAllUsers = async(req, res) => {
+export const getAllUsers = async (req, res) => {
     try {
-        const users = await getAllUsersService()
-
-        if(users.length > 0) {
-            res.status(200).json(users)
-        }else{
-            res.status(404).json({
-                message: "No users found"
-            })
-        }
-        
+        const users = await getAllUsersService();
+        res.status(200).json(users);
     } catch (error) {
-        res.status(500).json({error: error.message});
+        sendServerError(res, error.message);
     }
-}
+};
+
 
 
 export const deleteUserById = async (req, res) => {

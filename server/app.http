@@ -34,7 +34,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:9500/api/users/7e1eb6fe-80d0-4017-b594-5eb4bf644376
+DELETE http://localhost:9500/api/users/e95ef228-da59-4437-a549-1593dcfee095
 
 
 ###

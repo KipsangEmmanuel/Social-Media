@@ -64,16 +64,21 @@ export const findByCredentialsService = async (user) => {
 
 export const getAllUsersService = async () => {
     try {
+        const usersResponse = await poolRequest().query('SELECT * FROM tbl_user');
+        const users = usersResponse.recordset.map(user => {
+            const { Password, ...userInfo } = user;
+            return userInfo;
+        });
 
-        const query = 'SELECT * FROM tbl_user';
-        const result = await poolRequest().query(query);
-
-        return result.recordset;
-        
+        return users;
     } catch (error) {
+        console.log(error);
         throw error;
     }
-}
+};
+
+
+
 
 export const deleteUserService = async(user_id) => {
     try {
