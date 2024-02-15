@@ -29,8 +29,8 @@ POST http://localhost:9500/api/users/auth/login
 Content-Type: application/json
 
 {
-    "username": "Emmanuel Kipsang",
-    "password": "@Emmanuel123"
+    "username": "Abel Kipsang",
+    "password": "@Abel123"
 }
 
 ###

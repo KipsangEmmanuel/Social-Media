@@ -62,25 +62,27 @@ export const registerUser = async (req, res) => {
 
 
 export const loginUser = async (req, res) => {
-    const {username, password} = req.body
+    const { username, password } = req.body;
     const { error } = userLoginValidator({ username, password });
-    if(error) {
-        return res.status(400).send(error.details[0].message);
 
-    }else{
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    } else {
         try {
             const userResponse = await findByCredentialsService({ username, password });
-            if(userResponse.error) {
-                notAuthorized(res, userResponse.error)
-            }else{
-                res.status(200).send(userResponse)
+            
+            if (userResponse.error) {
+                notAuthorized(res, userResponse.error);
+            } else {
+                res.status(200).send(userResponse);
             }
             
         } catch (error) {
-            sendServerError(res, error.message)
+            sendServerError(res, error.message);
         }
     }
-}
+};
+
 
 
 export const getAllUsers = async(req, res) => {

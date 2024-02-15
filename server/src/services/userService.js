@@ -30,39 +30,37 @@ export const addUserService = async (newUser) => {
 export const findByCredentialsService = async (user) => {
     try {
         const userFoundResponse = await poolRequest()
-        .input('username', sql.VarChar, user.username)
-        .query('SELECT * FROM tbl_user WHERE username = @username');
+            .input('username', sql.VarChar, user.username)
+            .query('SELECT * FROM tbl_user WHERE Username = @username');
 
-        //compare the password from the body and the one in the db
-        if(userFoundResponse.recordset[0]) {
-            if(await bcrypt.compare(user.password, userFoundResponse.recordset[0].password)){
+        // Compare the password from the body and the one in the db
+        if (userFoundResponse.recordset[0]) {
+            if (await bcrypt.compare(user.password, userFoundResponse.recordset[0].Password)) {
 
                 let token = jwt.sign(
                     {
-                        id: userFoundResponse.recordset[0].id,
-                        username: userFoundResponse.recordset[0].username,
-                        email: userFoundResponse.recordset[0].email
+                        id: userFoundResponse.recordset[0].UserID,
+                        username: userFoundResponse.recordset[0].Username,
+                        email: userFoundResponse.recordset[0].Email
                     },
                     process.env.JWT_SECRET, { expiresIn: "2h"}
                 );
 
-                const { password, ...user } = userFoundResponse.recordset[0];
-                return {user, token: `JWT ${token}`};
+                const { Password, ...userInfo } = userFoundResponse.recordset[0];
+                return { user: userInfo, token: `JWT ${token}` };
 
-
-            }else{
-                return { error: 'Invalid Credentials'}
+            } else {
+                return { error: 'Invalid Credentials' };
             }
-        }else{
+        } else {
             return { error: 'Invalid Credentials' };
         }
         
     } catch (error) {
-        return error
-        
+        return error;
     }
-    
-}
+};
+
 
 export const getAllUsersService = async () => {
     try {
