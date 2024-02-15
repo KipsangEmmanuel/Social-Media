@@ -2,7 +2,7 @@ import express from "express"
 import bcrypt from 'bcrypt'
 import { v4 } from 'uuid';
 import { sql } from "../utils/dbConnect.js"
-import { addUserService, findByCredentialsService } from "../services/userService.js";
+import { addUserService, findByCredentialsService, getAllUsersService } from "../services/userService.js";
 import { notAuthorized, sendCreated, sendServerError } from "../helper/helperFunction.js";
 import { userLoginValidator, validateRegisterUser } from "../validators/userValidator.js";
 
@@ -79,4 +79,21 @@ export const loginUser = async (req, res) => {
     }
 }
 
+
+export const getAllUsers = async(req, res) => {
+    try {
+        const users = await getAllUsersService()
+
+        if(users.length > 0) {
+            res.status(200).json(users)
+        }else{
+            res.status(404).json({
+                message: "No users found"
+            })
+        }
+        
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+}
 

@@ -61,3 +61,16 @@ export const findByCredentialsService = async (user) => {
     }
     
 }
+
+export const getAllUsersService = async () => {
+    try {
+
+        const query = 'SELECT * FROM tbl_user';
+        const result = await sql.query(query);
+
+        return result.recordset;
+        
+    } catch (error) {
+        throw error;
+    }
+}

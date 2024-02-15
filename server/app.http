@@ -2,7 +2,9 @@
 GET http://localhost:9500/
 
 ###
+GET http://localhost:9500/api/users/all
 
+###
 POST http://localhost:9500/api/users/register
 Content-Type: application/json
 
